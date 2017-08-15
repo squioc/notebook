@@ -11,9 +11,9 @@ type Note struct {
 }
 
 // NewNote creates a new note from a category and a content
-func NewNote(Category string, Content []byte) Note {
-    return &note {
-        Category: category,
-        Content: content,
+func NewNote(Category string, Content []byte) *Note {
+    return &Note {
+        Category: Category,
+        Content: Content,
     }
 }
