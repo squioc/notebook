@@ -10,7 +10,7 @@ type Notebook interface {
     Get(string) (*Note, error)
 
     // Set adds or updates a note in the notebook
-    Set(string, []byte) error
+    Set(string, *Note) error
 
     // Delete deletes a note from the notebook according to its name
     Delete(string) error
