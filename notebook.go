@@ -6,12 +6,12 @@ type Notebook interface {
     // List returns the list of notes holding in the notebook
     List() Notes
 
-    // Get returns a note from the notebook according to its identifier
-    Get([]byte) (Note, error)
+    // Get returns a note from the notebook according to its name
+    Get(string) (Note, error)
 
     // Set adds or updates a note in the notebook
-    Set([]byte, []byte) error
+    Set(string, []byte) error
 
-    // Delete deletes a note from the notebook according to its identifier
-    Delete([]byte) error
+    // Delete deletes a note from the notebook according to its name
+    Delete(string) error
 }
