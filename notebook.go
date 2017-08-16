@@ -7,7 +7,7 @@ type Notebook interface {
     List() Notes
 
     // Get returns a note from the notebook according to its name
-    Get(string) (Note, error)
+    Get(string) (*Note, error)
 
     // Set adds or updates a note in the notebook
     Set(string, []byte) error
