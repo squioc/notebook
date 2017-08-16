@@ -13,5 +13,5 @@ type Notes interface {
     Next() error
 
     // Value returns the current note with its name
-    Value() (string, Note)
+    Value() (string, *Note)
 }
