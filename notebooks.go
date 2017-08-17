@@ -12,6 +12,9 @@ type Notebooks interface {
     // Next moves to the nextbook note
     Next() error
 
-    // Value returns the current notebook with its name
-    Value() (string, Notebook)
+    // Name returns the name of the current notebook
+    Name() string
+
+    // Notebook returns the current notebook
+    Notebook() Notebook
 }
