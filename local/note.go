@@ -12,20 +12,19 @@ var ErrorInvalidLocalNoteFormat = errors.New("The format of the local note is in
 
 // LoadNote reads a note from a io.Reader
 func LoadNote(reader io.Reader) (*notebook.Note, error) {
-    content, err := ioutil.ReadAll(reader)
+    data, err := ioutil.ReadAll(reader)
     if err != nil {
         return nil, err
     }
 
-    separatorPosition := bytes.IndexByte(content, 0x00)
+    separatorPosition := bytes.IndexByte(data, 0x00)
     if separatorPosition == -1 {
         return nil, ErrorInvalidLocalNoteFormat
     }
 
-    return notebook.NewNote(
-        string(content[:separatorPosition]),
-        content[separatorPosition+1:],
-    ), nil
+    category := string(data[:separatorPosition])
+    content := data[separatorPosition+1:]
+    return notebook.NewNote(category, content), nil
 }
 
 // SaveNote writes a note in a io.Writer
